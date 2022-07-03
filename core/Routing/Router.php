@@ -77,6 +77,11 @@ class Router
             }
         }
 
+        if (is_array($callback)) {
+            $handler = new $callback[0];
+            $callback[0] = $handler;
+        }
+
         if (is_string($callback)) {
             $parts = explode("::", $callback);
             if (is_array($parts)) {

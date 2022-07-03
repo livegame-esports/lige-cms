@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\HomeController;
 use Core\Routing\Router;
 
 error_reporting(E_ALL);
@@ -9,9 +10,7 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 $router = new Router();
 
-$router->get('/', function () {
-    echo 'hello';
-});
+$router->get('/', [HomeController::class, 'index']);
 
 $router->fallback(function () {
     echo 'Not found';
